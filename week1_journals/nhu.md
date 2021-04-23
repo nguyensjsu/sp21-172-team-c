@@ -10,4 +10,5 @@
 ## Accomplishments
 * Successfully identify tasks and goals
 * Backoffice Help Desk initiated
-
+# Task Board Snapshot
+![Nhu Task](images/nhu_taskboard.jpg)
