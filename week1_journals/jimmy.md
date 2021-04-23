@@ -7,4 +7,4 @@ I ran the following functions to get the cashier's app onto the local host.
 
 I edited the nodejs folder to start implementing the feature that allows our baristas to select and customiza an order for the customer. I also started editing the UI. 
 
-![Cashier's App](week1_journals/images/jlp1.png)
+![Cashier's App](images/jlp1.png)
