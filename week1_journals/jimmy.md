@@ -15,4 +15,4 @@ I edited the nodejs folder to start implementing the feature that allows our bar
 
 # Challenges
 
-I'm still trying to figure out how to carry variables over from the html file to java file. 
+I'm still trying to figure out how to carry variables over from the html file to java file. We still need to move it over to spring.
