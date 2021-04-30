@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+  border: none;
+  border-bottom: 2px solid gray;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>BILLING ADDRESS</h3>
+Enter billing address for your credit/debit card
+
+<div>
+  <form name="form" th:object="${command}" method="post" action="">
+    <label for="address1">Address line 1</label>
+    <input type="text" id="address1" name="address1" placeholder="Address line 1" th:field="*{address}">
+
+    <label for="address2">Address line 2</label>
+    <input type="text" id="address2" name="address2" placeholder="Address line 2" th:field="*{address2}">
+    
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" placeholder="City" th:field="*{city}">
+
+    <label for="state">State</label>
+    <select id="state" name="state" th:field="*{state}"> 
+      <option value="select">Select</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <!-- <label for="state">State</label>
+    <input type="text" id="state" name="state" placeholder="State">
+     -->
+    <label for="zip">Zip code</label>
+    <input type="text" id="zip" name="zip" placeholder="Zip code" th:field="*{zip}">
+    
+    <label for="phone">Phone number</label>
+    <input type="text" id="phone" name="phone" placeholder="Phone number" th:field="*{phone}">
+  
+    <input type="submit" value="Continue">
+
+    <div th:if="${not#lists.isEmpty(messages)}">
+      <div class="messages">
+        <ul th:each="m : ${messages}">
+            <li th:text="${m.msg}" />
+        </ul>
+      </div>
+    </div>
+
+    <div class="message">
+      <span th:text="${message}" />
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>
