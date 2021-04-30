@@ -105,11 +105,22 @@
                         <!-- console row -->
                         <div class="row" id="console">
                             <div class="col">
-                                <h4>order will show here...</h4>
+                                <p class="order-label">Drink: <span th:text="${order?.drink}"></span></p>
+                                <p class="order-label">Milk: <span th:text="${order?.milk}"></span></p>
+                                <p class="order-label">Size: <span th:text="${order?.size}"></span></p>
+                                <p class="order-label">Total: <span th:text="${order?.total}"></span></p>
+                                <p class="order-label">Status: <span th:text="${order?.status}"></span></p>
                             </div>
                         </div>
                         <div class="row align-items-center" id="btns">
                             <div class="col">
+                                <div class="row">
+                                    <div class="col" id="get-order-col">
+                                        <input type="submit" name="action" class="btn" value="Get Order">
+                                        <input type="submit" name="action" class="btn" value="Place Order" id="place-order-btn">
+                                        <input type="submit" name="action" class="btn" value="Delete Order">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -118,9 +129,3 @@
         </div>
     </body>
 </html>
-
-<!--
-    <input type="submit" name="event" class="btn" value="Place Order" id="place-order-btn">
-    <input type="submit" name="event" class="btn" value="Delete Order">
-    <input type="submit" name="event" class="btn" value="Get Order">
--->
