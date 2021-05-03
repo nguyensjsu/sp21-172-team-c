@@ -24,13 +24,15 @@ import com.fasterxml.jackson.core.type.TypeReference;
 public class CashiersAppController {
 
     @GetMapping
-    public String cashiers() {
+    public String cashiers(Model model) {
+        model.addAttribute("storeID", "5012349"); // will default store to Dub-C
         return "cashiers";
     }
 
     @PostMapping
     public String post(
-        @RequestParam(name="action") String action, 
+        @RequestParam(name="action") String action,
+        @RequestParam(name="store") String storeID, // equivalent to "regid" in the rest api
         Model model
         ){
         HttpClient client = HttpClient.newHttpClient();
@@ -38,7 +40,7 @@ public class CashiersAppController {
         // --- GET ORDER TEST ---
         if (action.equals("Get Order")) {
             HttpRequest httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:9090/order/register/5012349"))
+                .uri(URI.create("http://localhost:9090/order/register/" + storeID))
                 .GET()
                 .build();
 
@@ -50,7 +52,33 @@ public class CashiersAppController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else if (action.equals("Place Order")) {
+            HttpRequest httpRequest = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:9090/order/register/" + storeID + "/pay/" + "297007900")) // create/activate card before testing this, and put cc num at end
+                .POST(HttpRequest.BodyPublishers.ofString(""))
+                .build();
+
+            try {
+                HttpResponse httpResponse = client.send(httpRequest, BodyHandlers.ofString());
+                System.out.println(httpResponse.body());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (action.equals("Delete Order")) {
+            HttpRequest httpRequest = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:9090/order/register/" + storeID))
+                .DELETE()
+                .build();
+            
+            try {
+                HttpResponse<String> httpResponse = client.send(httpRequest, BodyHandlers.ofString());
+                System.out.println(httpResponse.body());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
+        model.addAttribute("storeID", storeID);
 
         return "cashiers";
     }
