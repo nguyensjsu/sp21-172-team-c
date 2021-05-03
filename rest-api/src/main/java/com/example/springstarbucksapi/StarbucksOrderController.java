@@ -27,8 +27,7 @@ public class StarbucksOrderController {
 
     @Autowired
     private StarbucksCardRepository cardRepo;
-
-    private HashMap<String, StarbucksOrder> activeOrders = new HashMap<>();
+    private HashMap<String,StarbucksOrder> activeOrders = new HashMap<>(); // keys are the register ids
 
     public StarbucksOrderController(StarbucksOrderRepository repo) {
         this.repo = repo;
