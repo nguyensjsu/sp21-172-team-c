@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CashiersAppApplication<cashiers-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.cashiersapp.CashiersAppApplication",
+            "projectName": "cashiers-app",
+            "args": ""
+        }
+    ]
+}
