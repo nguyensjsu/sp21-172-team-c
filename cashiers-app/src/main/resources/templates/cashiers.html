@@ -122,6 +122,32 @@
                         </div>
                         <!-- console row -->
                         <div class="row" id="console">
+                            <div class ="col">
+                                <p> 
+                                    <!-- Drinks -->
+                                    <form action = "">
+                                    <select class="form-select" id="drinks" name="drink">
+                                        <option value="1">Caffe Latte</option>
+                                        <option value="2">Caffe Americano</option>
+                                        <option value="3">Caffe Mocha</option>
+                                        <option value="4">Espresso</option>
+                                        <option value="5">Cappuccino</option>
+                                    </select>
+                                    </form>
+                                </p>
+                                <p>
+                                    <form action="">
+                                    <!-- Milk -->
+                                    <select class="form-select" id="milk" name="milk">
+                                        <option value="1">Whole Milk</option>
+                                        <option value="2">2% Milk</option>
+                                        <option value="3">Nonfat Milk</option>
+                                        <option value="4">Almond Milk</option>
+                                        <option value="5">Soy Milk</option>
+                                    </select> 
+                                    </form>
+                                </p>
+                            </div>
                             <div class="col">
                                 <p class="order-label">Drink: <span th:text="${order?.drink}"></span></p>
                                 <p class="order-label">Milk: <span th:text="${order?.milk}"></span></p>
