@@ -120,9 +120,12 @@
                                 </select>
                             </div>
                         </div>
+                        <hr>
+                        <br>
                         <!-- console row -->
-                        <div class="row" id="console">
-                            <div class ="col">
+                        <div class="row" id="console" style="min-height: 400px;">
+                            <div class ="col" style="margin-right: 400px;">
+                                <br><br>
                                 <p> 
                                     <!-- Drinks -->
                                     <form action = "">
@@ -135,6 +138,7 @@
                                     </select>
                                     </form>
                                 </p>
+                                <br><br>
                                 <p>
                                     <form action="">
                                     <!-- Milk -->
@@ -148,7 +152,7 @@
                                     </form>
                                 </p>
                             </div>
-                            <div class="col">
+                            <div class="col" style="border-style: offset;">
                                 <p class="order-label">Drink: <span th:text="${order?.drink}"></span></p>
                                 <p class="order-label">Milk: <span th:text="${order?.milk}"></span></p>
                                 <p class="order-label">Size: <span th:text="${order?.size}"></span></p>
