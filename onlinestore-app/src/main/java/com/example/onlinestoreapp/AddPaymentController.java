@@ -171,10 +171,10 @@ public class AddPaymentController {
 
         //Check for errors
         boolean hasErrors = false;
-        if(command.firstname().equals(""))
+        if(command.firstname().equals("Select"))
         {
             hasErrors = true; 
-            msgs.add("First Name Required.");
+            msgs.add("Please Select A Card Type.");
         }                        
         if(command.lastname().equals(""))
         {
@@ -191,10 +191,10 @@ public class AddPaymentController {
             hasErrors = true; 
             msgs.add("City Required.");
         }                        
-        if(command.state().equals("State"))
+        if(command.state().equals("Select"))
         {
             hasErrors = true;
-            msgs.add("Please Select A State");
+            msgs.add("Please Select A State.");
         }    
         if(command.zip().equals(""))
         {

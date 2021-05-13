@@ -83,7 +83,7 @@
                 <div class="col-50"> -->
                   <!-- <label for="state">State</label> -->
                   <select type="text" id="state" name="state" placeholder="State" th:field="*{state}">
-                    <option value="State">State</option>
+                    <option value="Select">Select</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -156,7 +156,13 @@
               <input type="text" id="notes" name="notes" th:field="*{notes}" />   
               <!-- change first name to card type -->
               <label for="fname">Card Type *</label>
-              <input type="text" id="fname" name="firstname" th:field="*{firstname}" />
+              <select type="text" id="fname" name="firstname" th:field="*{firstname}">
+                <option value="Select">Select</option>
+                <option value="Visa">Visa</option>
+                <option value="Mastercard">Mastercard</option>
+                <option value="American Express">American Express</option>
+                <option value="Discover">Discover</option>
+              </select>
               <!-- change last name to name on card -->
               <label for="lname">Name on Card *</label>
               <input type="text" id="lname" name="lirstname" th:field="*{lastname}" />
