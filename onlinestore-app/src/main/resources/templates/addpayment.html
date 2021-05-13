@@ -17,43 +17,43 @@
 </head>
 
 <style>
-    input[type=text], select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      
-      border: none;
-      border-bottom: 2px solid gray;
-    }
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
     
-    input[type=submit] {
-      width: 100%;
-      background-color: #4CAF50;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    
-    input[type=submit]:hover {
-      background-color: #45a049;
-    }
-    
-    div {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
-    }
-    table{ 
-      table-layout: fixed;
-    }
-    
+    border: none;
+    border-bottom: 2px solid #00704A;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #00704A;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  table{ 
+    table-layout: fixed;
+  }
+  
 </style>
 
 <body>
@@ -65,87 +65,119 @@
             
             <td>
             <strong style="font-size:60px"> Add Payment Method </strong>
-            <!-- <img style="width:100%" src="/images/addpaymentmethod.png"> -->
+            <!-- <img style="width:100%" src="/images/logo.png"> -->
             </td>
 
             <td>
-                <div class="col-75">
-                    <div class="fcontainer">
-                        <div class="row">
-                          <div class="col-50">
-                            <h3>BILLING ADDRESS</h3>
-                            Enter billing address for your credit/debit card
-                            <br/>
-                            <br/>
-                            <input type="text" id="adr" name="address" placeholder="Address line 1" th:field="*{address}" />
-                            <input type="text" id="city" name="city" placeholder="City" th:field="*{city}" />
-                            <input type="text" id="state" name="state" placeholder="State" th:field="*{state}" />
-                            <input type="text" id="zip" name="zip" placeholder="Zip code" th:field="*{zip}" />
-                            <input type="text" id="phone" name="phonenumber" placeholder="Phone number" th:field="*{phone}" /> 
-                        
-                          <div class="col-50">
-                            <h3>CREDIT/DEBIT CARD</h3>
-                            Please enter your payment information.
-                            <br/>
-                            Required *
-                            <br/>
-                            <br/>
-                            <!-- change first name to nickname -->
-                            <label for="fname">Nickname</label> 
-                            <input type="text" id="fname" name="firstname" placeholder=""  th:field="*{firstname}" />
-                            <!-- change email to card type -->
-                            <label for="email">Card Type *</label>
-                            <input type="text" id="email" name="email" placeholder="" th:field="*{email}" />
-                            <!-- change last name to name on card -->
-                            <label for="lname">Name on Card *</label>
-                            <input type="text" id="lname" name="lirstname" placeholder=""  th:field="*{lastname}" />
-                            <label for="ccnum">Card Number *</label>
-                            <input type="text" id="ccnum" name="cardnumber" placeholder="" th:field="*{cardnum}" />
-                            <label for="cvv">CVN *</label>
-                            <input type="text" id="cvv" name="cvv" placeholder="" th:field="*{cardcvv}" />
-                            <label for="date">Expiration Date *</label>
-                            <div class="row">
-                              <div class="col-50">
-                                <label for="expmonth">Exp Month</label>
-                                <input type="text" id="expmonth" name="expmonth" placeholder="Month" th:field="*{cardexpmon}" />
-                              </div>
-                              <div class="col-50">
-                                <label for="expyear">Exp Year</label>
-                                <input type="text" id="expyear" name="expyear" placeholder="Year" th:field="*{cardexpyear}" />
-                              </div>
-                            </div>
-                            <!-- <label for="notes"> Notes</label>
-                            <input type="text" id="notes" name="notes" placeholder="special instructions" th:field="*{notes}" /> -->
-                          </div>
+    <div class="col-75">
+      <!-- <div class="fcontainer"> -->
+          <div class="row">
+            <div class="col-50">
+              <h3>BILLING ADDRESS</h3>
+              Enter billing address for your credit/debit card
+              <!-- <label for="adr">Address line 1</label> -->
+              <input type="text" id="adr" name="address" placeholder="Address line 1" th:field="*{address}" />
+              <!-- <label for="city"><i class="fa fa-institution"></i> City</label> -->
+              <input type="text" id="city" name="city" placeholder="City" th:field="*{city}" />
+              <!-- <div class="row">
+                <div class="col-50"> -->
+                  <!-- <label for="state">State</label> -->
+                  <input type="text" id="state" name="state" placeholder="State" th:field="*{state}" />
+                <!-- </div> -->
+                <!-- <div class="col-50"> -->
+                  <!-- <label for="zip">Zip</label> -->
+                  <input type="text" id="zip" name="zip" placeholder="Zip code" th:field="*{zip}" />
+                <!-- </div>
+              </div> -->
+              <!-- <label for="phone">Phone Number</label> -->
+              <input type="text" id="phone" name="phonenumber" placeholder="Phone number" th:field="*{phone}" />            
+            <!-- </div>
+
+            <div class="col-50"> -->
+              <h3>CREDIT/DEBIT CARD</h3>
+              Please enter your payment information.
+              <br/>
+              <label style="color:red;">Required *</label>
+              <br/>
+              <!-- change notes to nickname -->
+              <label for="notes"> Nickname</label>
+              <input type="text" id="notes" name="notes" th:field="*{notes}" />   
+              <!-- change first name to card type -->
+              <label for="fname">Card Type *</label>
+              <input type="text" id="fname" name="firstname" th:field="*{firstname}" />
+              <!-- change last name to name on card -->
+              <label for="lname">Name on Card *</label>
+              <input type="text" id="lname" name="lirstname" th:field="*{lastname}" />
               
-                        </div>
+              <label for="ccnum">Card Number *</label>
+              <input type="text" id="ccnum" name="cardnumber" th:field="*{cardnum}" />
+              <label for="cvv">CVN *</label>
+              <input type="text" id="cvv" name="cvv" th:field="*{cardcvv}" />
               
-                        <input type="submit" name="action" id="process-payment" value="Save Payment Method" class="btn">
-                        <br/>
-                        <br/>
-                        <br/>
-              
-                      <div th:if="${not#lists.isEmpty(messages)}">
-                      <div class="messages">
-                          <ul th:each="m : ${messages}">
-                              <li th:text="${m.msg}" />
-                          </ul>
-                      </div>
-                      </div>
-              
-                        <div class="message">
-                        <span th:text="${message}" />
-                        </div>
-            
-                    </div>
-                  </div>  
+              <label for="exp">Expiration Date *</label>
+              <!-- <label for="expmonth">Exp Month</label> -->
+              <div class="row">
+                <div class="col-50">
+                  <!-- <label for="expyear">Exp Year</label> -->
+                  <select type="text" id="expmonth" name="expmonth" th:field="*{cardexpmon}">
+                  <option value="month">Month</option>
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  </select>
+
+                </div>
+                <div class="col-50">
+                  <select type="text" id="expyear" name="expyear" th:field="*{cardexpyear}">
+                  <option value="year">Year</option>
+                  <option value="2019">2019</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  </select>
+                </div>
               </div>
-              
-            </td>
+              <!-- delete later on -->
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" placeholder="john@example.com" th:field="*{email}" />
+            </div>
+
+          </div>
+
+          <input type="submit" name="action" id="process-payment" value="Save Payment Method" class="btn">
+      
+        <div th:if="${not#lists.isEmpty(messages)}">
+        <div class="messages">
+            <ul th:each="m : ${messages}">
+                <li th:text="${m.msg}" />
+            </ul>
+        </div>
+        </div>
+
+          <div class="message">
+          <span th:text="${message}" />
+          </div>
+      <!-- </div> -->
+    </div>  
+</div>
+</td>
         </tr>
     </table>
 </form>
 <!-- END FORM SECTION -->
+
 </body>
 </html>
 

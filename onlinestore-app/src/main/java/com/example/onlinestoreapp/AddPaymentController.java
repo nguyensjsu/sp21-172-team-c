@@ -52,21 +52,21 @@ public class AddPaymentController {
 
     private CyberSourceAPI api = new CyberSourceAPI();
 
-    private static Map<String,String> months = new HashMap<>();
-    static {
-        months.put("January", "01");
-        months.put("February", "02");
-        months.put("March", "03");
-        months.put("April", "04");
-        months.put("May", "05");
-        months.put("June", "06");
-        months.put("July", "07");
-        months.put("August", "08");
-        months.put("September", "09");
-        months.put("October", "10");
-        months.put("November", "11");
-        months.put("December", "12");
-    }
+    // private static Map<String,String> months = new HashMap<>();
+    // static {
+    //     months.put("January", "01");
+    //     months.put("February", "02");
+    //     months.put("March", "03");
+    //     months.put("April", "04");
+    //     months.put("May", "05");
+    //     months.put("June", "06");
+    //     months.put("July", "07");
+    //     months.put("August", "08");
+    //     months.put("September", "09");
+    //     months.put("October", "10");
+    //     months.put("November", "11");
+    //     months.put("December", "12");
+    // }
 
     private static Map<String,String> states = new HashMap<>();
     static {
@@ -253,6 +253,11 @@ public class AddPaymentController {
             hasErrors = true;
             msgs.add("Invalid Card Expire Year");
         }
+        if(!command.cardexpmon().matches("\\d{2}"))
+        {
+            hasErrors = true;
+            msgs.add("Invalid Card Expire Month");
+        }
         if(!command.cardcvv().matches("\\d{3}"))
         {
             hasErrors = true;
@@ -260,11 +265,11 @@ public class AddPaymentController {
         }
 
         //validate months of the year
-        if(months.get(command.cardexpmon()) == null)
-        {
-            hasErrors = true;
-            msgs.add("Invalid Card Expiration Month: " + command.cardexpyear());
-        }
+        // if(months.get(command.cardexpmon()) == null)
+        // {
+        //     hasErrors = true;
+        //     msgs.add("Invalid Card Expiration Month: " + command.cardexpyear());
+        // }
 
         //validate states of 50 U.S. states
         if(states.get(command.state()) == null)
@@ -300,7 +305,7 @@ public class AddPaymentController {
         auth.transactionAmount = "30.00";
         auth.transactionCurrency = "USD";
         auth.cardNumnber = command.cardnum();
-        auth.cardExpMonth = months.get(command.cardexpmon());
+        auth.cardExpMonth = command.cardexpmon();
         auth.cardExpYear = command.cardexpyear();
         auth.cardCVV = command.cardcvv();
         auth.cardType = CyberSourceAPI.getCardType(auth.cardNumnber);
