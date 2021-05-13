@@ -68,59 +68,59 @@ public class AddPaymentController {
     //     months.put("December", "12");
     // }
 
-    private static Map<String,String> states = new HashMap<>();
-    static {
-        states.put("AL", "Alabama");
-        states.put("AK", "Alaska");
-        states.put("AZ", "Arizona");
-        states.put("AR", "Arkansas");
-        states.put("CA", "California");
-        states.put("CO", "Colorado");
-        states.put("CT", "Connecticut");
-        states.put("DE", "Delaware");
-        states.put("FL", "Florida");
-        states.put("GA", "Georgia");
-        states.put("HI", "Hawaii");
-        states.put("ID", "Idaho");
-        states.put("IL", "Illinois");
-        states.put("IN", "Indiana");
-        states.put("IA", "Iowa");
-        states.put("KS", "Kansas");
-        states.put("KY", "Kentucky");
-        states.put("LA", "Louisiana");
-        states.put("ME", "Maine");
-        states.put("MD", "Maryland");
-        states.put("MA", "Masachusetts");
-        states.put("MI", "Michigan");
-        states.put("MN", "Minnesota");
-        states.put("MS", "Mississipi");
-        states.put("MO", "Missouri");
-        states.put("MT", "Montana");
-        states.put("NE", "Nebraska");
-        states.put("NV", "Nevada");
-        states.put("NH", "New Hampshire");
-        states.put("NJ", "New Jersey");
-        states.put("NM", "New Mexico");
-        states.put("NY", "New York");
-        states.put("NC", "North Carolina");
-        states.put("ND", "North Dakota");
-        states.put("OH", "Ohio");
-        states.put("OK", "Oklahoma");
-        states.put("OR", "Oregon");
-        states.put("PA", "Pennsyvania");
-        states.put("RI", "Rhode Island");
-        states.put("SC", "South Carolina");
-        states.put("SD", "South Dakota");
-        states.put("TN", "Tennessee");
-        states.put("TX", "Texas");
-        states.put("UT", "Utah");
-        states.put("VT", "Vermont");
-        states.put("VA", "Virginia");
-        states.put("WA", "Washington");
-        states.put("WV", "West Virginia");
-        states.put("WI", "Wisconsin");
-        states.put("WY", "Wyoming");
-    }
+    // private static Map<String,String> states = new HashMap<>();
+    // static {
+    //     states.put("AL", "Alabama");
+    //     states.put("AK", "Alaska");
+    //     states.put("AZ", "Arizona");
+    //     states.put("AR", "Arkansas");
+    //     states.put("CA", "California");
+    //     states.put("CO", "Colorado");
+    //     states.put("CT", "Connecticut");
+    //     states.put("DE", "Delaware");
+    //     states.put("FL", "Florida");
+    //     states.put("GA", "Georgia");
+    //     states.put("HI", "Hawaii");
+    //     states.put("ID", "Idaho");
+    //     states.put("IL", "Illinois");
+    //     states.put("IN", "Indiana");
+    //     states.put("IA", "Iowa");
+    //     states.put("KS", "Kansas");
+    //     states.put("KY", "Kentucky");
+    //     states.put("LA", "Louisiana");
+    //     states.put("ME", "Maine");
+    //     states.put("MD", "Maryland");
+    //     states.put("MA", "Masachusetts");
+    //     states.put("MI", "Michigan");
+    //     states.put("MN", "Minnesota");
+    //     states.put("MS", "Mississipi");
+    //     states.put("MO", "Missouri");
+    //     states.put("MT", "Montana");
+    //     states.put("NE", "Nebraska");
+    //     states.put("NV", "Nevada");
+    //     states.put("NH", "New Hampshire");
+    //     states.put("NJ", "New Jersey");
+    //     states.put("NM", "New Mexico");
+    //     states.put("NY", "New York");
+    //     states.put("NC", "North Carolina");
+    //     states.put("ND", "North Dakota");
+    //     states.put("OH", "Ohio");
+    //     states.put("OK", "Oklahoma");
+    //     states.put("OR", "Oregon");
+    //     states.put("PA", "Pennsyvania");
+    //     states.put("RI", "Rhode Island");
+    //     states.put("SC", "South Carolina");
+    //     states.put("SD", "South Dakota");
+    //     states.put("TN", "Tennessee");
+    //     states.put("TX", "Texas");
+    //     states.put("UT", "Utah");
+    //     states.put("VT", "Vermont");
+    //     states.put("VA", "Virginia");
+    //     states.put("WA", "Washington");
+    //     states.put("WV", "West Virginia");
+    //     states.put("WI", "Wisconsin");
+    //     states.put("WY", "Wyoming");
+    // }
 
     @Getter
     @Setter
@@ -191,11 +191,11 @@ public class AddPaymentController {
             hasErrors = true; 
             msgs.add("City Required.");
         }                        
-        if(command.state().equals(""))
+        if(command.state().equals("State"))
         {
-            hasErrors = true; 
-            msgs.add("State Required.");
-        }                        
+            hasErrors = true;
+            msgs.add("Please Select A State");
+        }    
         if(command.zip().equals(""))
         {
             hasErrors = true; 
@@ -263,6 +263,7 @@ public class AddPaymentController {
             hasErrors = true;
             msgs.add("Invalid Card CVV");
         }
+        
 
         //validate months of the year
         // if(months.get(command.cardexpmon()) == null)
@@ -272,11 +273,11 @@ public class AddPaymentController {
         // }
 
         //validate states of 50 U.S. states
-        if(states.get(command.state()) == null)
-        {
-            hasErrors = true;
-            msgs.add("Invalid State: " + command.state());
-        }
+        // if(states.get(command.state()) == null)
+        // {
+        //     hasErrors = true;
+        //     msgs.add("Invalid State: " + command.state());
+        // }
 
         if(hasErrors)
         {
@@ -361,8 +362,10 @@ public class AddPaymentController {
 
             repository.save(command);
 
-            System.out.println("Thank You for Your Payment! Your Order Number is: " + order_num ) ;
-            model.addAttribute( "message", "Thank You for Your Payment! Your Order Number is: " + order_num ) ;
+            // System.out.println("Thank You for Your Payment! Your Order Number is: " + order_num ) ;
+            // model.addAttribute( "message", "Thank You for Your Payment! Your Order Number is: " + order_num ) ;
+            System.out.println("Payment Method Saved") ;
+            model.addAttribute( "message", "Payment Method Saved" ) ;
         }
 
         return "addpayment";
