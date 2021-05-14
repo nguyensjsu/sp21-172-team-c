@@ -11,3 +11,4 @@
 ## Solutions
 * Restructuring the architecture so that common classes are accessible by all the apps. 
 ## Task Board
+![Nhu Taskboard](images/nhu_taskboard.png)
