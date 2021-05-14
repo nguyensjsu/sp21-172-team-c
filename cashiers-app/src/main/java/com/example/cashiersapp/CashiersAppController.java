@@ -33,6 +33,9 @@ public class CashiersAppController {
     public String post(
         @RequestParam(name="action") String action,
         @RequestParam(name="store") String storeID, // equivalent to "regid" in the rest api
+        @RequestParam(name="drink") String drinkID,
+        @RequestParam(name="milk") String milkID,
+        @RequestParam(name="size") String sizeID,
         Model model
         ){
         HttpClient client = HttpClient.newHttpClient();
