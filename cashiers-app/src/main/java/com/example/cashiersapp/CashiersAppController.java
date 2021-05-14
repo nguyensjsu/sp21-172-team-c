@@ -58,7 +58,7 @@ public class CashiersAppController {
         } else if (action.equals("Place Order")) {
             HttpRequest httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:9090/order/register/" + storeID + "/pay/" + "297007900")) // create/activate card before testing this, and put cc num at end
-                .POST(HttpRequest.BodyPublishers.ofString(""))
+                .POST(HttpRequest.BodyPublishers.ofString(drinkID + milkID + sizeID))
                 .build();
 
             try {
