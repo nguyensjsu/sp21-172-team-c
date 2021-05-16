@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+}
+
+li a {
+  display: block;
+  color: gray;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #00704A;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 25%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+  float: right;
+}
+</style>
+</head>
+<body>
+
+    <img style="width:100%" src="/images/navigation.png"> 
+    <form name="form" th:object="${command}" method="GET" action="/add">
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <strong style="font-size:60px;" > Starbuck Cards </strong>
+                    <ul>
+                    <li><a style="font-size:30px;" href="#home">Pay</a></li>
+                    <li><a style="font-size:30px;" href="#news">Add</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <div class="col-75">   
+                        <label style="font-size:60px;">$ 0.00</label> 
+                        <img style="width:100%" src="/images/sbc.jpg">
+                    
+                        <input type="submit" name="action" id="process-payment" value="Add money" class="btn">
+                    </div>  
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
