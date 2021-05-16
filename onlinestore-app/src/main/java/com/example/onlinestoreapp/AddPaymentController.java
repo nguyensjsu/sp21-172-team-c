@@ -40,7 +40,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/")
+@RequestMapping("/add")
 public class AddPaymentController {  
 
     private static boolean DEBUG = true;
