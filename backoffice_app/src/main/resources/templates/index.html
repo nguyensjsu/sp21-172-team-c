@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+   <head>
+      <title>Back Office Customer Search</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   </head>
+	
+   <body>
+      <form action="#" th:action="@{/index}" th:object="${customerID}" method="post">
+         Enter customer ID: <input type = "text" name = "customerID" />
+         <input type = "submit" name = "submit" value = "Submit" />
+         <input type = "reset" name = "reset"  value = "Reset" />
+      </form>
+   </body>
+	
+</html>
