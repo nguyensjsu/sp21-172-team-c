@@ -41,7 +41,7 @@ public class MainController {
   }
 
   //Get all customers
-  @GetMapping(path="/customer")
+  @GetMapping(path="/customers")
   public @ResponseBody Iterable<Customer> getAllUsers() {
     // This returns a JSON or XML with the users
     return customerRepository.findAll();
@@ -56,5 +56,11 @@ public class MainController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error. Customer not found!");
         }
         return customer; 
+  }
+
+  @DeleteMapping(path="/clear")
+  public void clearAllCustomer() {
+    customerRepository.deleteAll();
+    
   }
 }
