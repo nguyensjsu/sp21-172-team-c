@@ -78,6 +78,8 @@ public class StarbucksOrderController {
             Status response = new Status();
             response.setStatus("Active order cleared!");
 
+            System.out.println("Cleared active order at Register " + regid);
+
             return response;
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There is no active order at this register to delete.");
@@ -127,6 +129,9 @@ public class StarbucksOrderController {
         activeOrder.setStatus("Paid with Card: " + cardNum + ", Remaining Balance: " + card.getBalance());
         repo.save(activeOrder);
 
+        // clear the paid order automatically
+        this.activeOrders.remove(regid);
+
         return card;
     }
 
@@ -156,6 +161,8 @@ public class StarbucksOrderController {
         
         Status response = new Status();
         response.setStatus("All orders cleared!");
+
+        System.out.println("All active orders cleared");
 
         return response;
     }
