@@ -1,0 +1,10 @@
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "onlinestore-app-ingress"
+  namespace: "default"
+spec:
+  backend:
+    serviceName: "onlinestore-app-service"
+    servicePort: 8080
+
