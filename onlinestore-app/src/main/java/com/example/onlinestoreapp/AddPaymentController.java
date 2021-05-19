@@ -368,7 +368,7 @@ public class AddPaymentController {
             model.addAttribute( "message", "Payment Method Saved" ) ;
         }
 
-        return "addpayment";
+        return "updatedstarbuckcards";
     }
 
 }
