@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+   <head>
+      <title>Starbucks Back Office</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   </head>
+	
+   <body>
+      <h1> Starbucks Back Office for Employee</h1>
+      <h2> Customer Search</h2>
+      <form action="#" th:action="@{/index}" th:object="${customer}" method="post">
+         Enter customer ID: <input type = "text" name = "*{customerID}" />
+         <input type="submit" value="Search" />
+         <input type = "reset" name = "reset"  value = "Reset" />
+         <br>
+         <button type="button" th:onclick="|window.location.href='/customers'|">List all customers</button>
+         
+      </form>
+   </body>
+	
+</html>
