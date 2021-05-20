@@ -93,4 +93,15 @@
 
 ## Cloud Deployments
 
-## Technial requirements (Discussion with screenshot evidence of how each technical requirement is meet)
+### Online Store - Deployed
+
+1. Docker & DockerHub
+![onlinestore-app](onlinestore-images/docker.png)
+![onlinestore-app](onlinestore-images/dockerhub.png)
+
+2. GKE
+![onlinestore-app](onlinestore-images/cluster.png)
+![onlinestore-app](onlinestore-images/workload.png)
+![onlinestore-app](onlinestore-images/service.png)
+![onlinestore-app](onlinestore-images/ingress.png)
+![onlinestore-app](onlinestore-images/deployed.png)

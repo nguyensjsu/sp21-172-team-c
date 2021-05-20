@@ -9,7 +9,7 @@ import javax.persistence.Index;
 import javax.persistence.Column;
 
 @Entity
-@Table(indexes=@Index(name="altIndex", columnList="customerID", unique=true))
+@Table
 public class Customer {
     @Id @GeneratedValue(strategy = GenerationType.AUTO) private Integer id;
 
