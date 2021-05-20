@@ -77,6 +77,16 @@
 
 #### Discussion
 
+Requirement: 
+- Online Store is using a "Real Credit Card" to Load Credits to the Starbucks Card.
+
+Implementation:
+- Our Online Store App has Add Payment Method Form for customers to fill out. It handles input error by showing the error message if the input is an incorrect format or the input is empty. 
+- It used Cybersource API to check if a credit card is valid. It valid, then it automatically loads $172 to the Starbuck Card. 
+
+Challenge: 
+- One of the challenges is that we couldn't use the same MySQL database in the assigned time frame. Therefore, we don't really have Starbuck Cards in a database to store or load money to purchase the drinks.
+
 ## REST API
 
 ### Sample Request - REST API Deployed w/ Kong API Gateway
