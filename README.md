@@ -117,7 +117,6 @@ Challenge:
 ## Back Office 
 
 ### Running Locally
-
 ![Main Page](backoffice-images/main.png)
 ![Customer List](backoffice-images/customer-list.png)
 ![Customer Search](backoffice-images/customer-search.png)
@@ -125,5 +124,9 @@ Challenge:
 
 ### Cloud Deployment
 ![Docker Image](backoffice-images/docker-image.png)
-![]
+![Deploy Error](backoffice-images/deploy-error.png)
+
 ### Discussion
+- The Back Office is tied with a MySQL database that stores customer's information locally. Each customer is required with a first name and last name.
+A random ID will then be generated for them. 
+- Back Office is a tool for an employee with administration rights such as a manager to manage a customer's rewards. 
