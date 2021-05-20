@@ -29,16 +29,21 @@ public class CustomerController {
 
 
   @GetMapping
-    public String home(Model model) {
-      model.addAttribute("customer", new Customer());
-      return "main";
-    }
+  public String home(Model model) {
+    model.addAttribute("customer", new Customer());
+    return "main";
+  }
 
-  @PostMapping("/customers/{customerID}")
-  public String home(@ModelAttribute Customer customer, Model model) {
-    System.out.println("customerID: "+ customer.getCustomerID());
-    model.addAttribute("customer", customer);
-    
+  @GetMapping("/search")
+  public String search(Model model) {
+    System.out.println("Search success");
+    model.addAttribute("customer", new Customer());
+    return "search";
+  }
+
+  @PostMapping("/search")
+  public String search(@ModelAttribute Customer customer, Model model) {
+    System.out.println("customerID: "+customer.getCustomerID());
     Iterable<Customer> customers = customerRepository.findAll();
     Customer found = new Customer();
     for(Customer c: customers) {
@@ -51,9 +56,12 @@ public class CustomerController {
     }
     else {
       String firstName = found.getFirstName();
+      model.addAttribute("customer", customer);
       model.addAttribute("name", firstName);
     }
-    return "search_result";
+    
+    //model.addAttribute("customer", customer);
+    return "backoffice";
   }
 
   //Add a customer
@@ -70,9 +78,9 @@ public class CustomerController {
     n.setFirstName(firstName);
     n.setLastName(lastName);
     n.setTotalRewards(0);
-    n.setID(String.valueOf(num));
+    n.setCustomerID(String.valueOf(num));
     customerRepository.save(n);
-    return "backoffice";
+    return "main";
   }
 
   @RequestMapping(value="/customers")
@@ -100,6 +108,6 @@ public class CustomerController {
   @DeleteMapping(path="/clear")
   public String clearAllCustomer() {
     customerRepository.deleteAll();
-    return "backoffice";
+    return "main";
   }
 }

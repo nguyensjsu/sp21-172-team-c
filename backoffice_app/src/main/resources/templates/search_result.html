@@ -8,14 +8,8 @@
 	
    <body>
       <h1> Starbucks Back Office for Employee</h1>
-      <h2> Customer Search</h2>
-      <form action="#" th:action="@{/index}" th:object="${customerID}" method="post">
-         Enter customer ID: <input type = "text" name = "customerID" />
-         <input type = "submit" name = "submit" value = "Submit" />
-         <input type = "reset" name = "reset"  value = "Reset" />
-         <br>
-         <button type="button" th:onclick="|window.location.href='/customers'|">List all customers</button>
-         <br>
+      <h2> Customer Search Result</h2>
+     
          <table>
             <thead>
                 <tr>
@@ -33,7 +27,7 @@
                </tr>
             </tbody>
          </table>
-      </form>
+         <a href="/search">Perform a search with ID</a>
    </body>
 	
 </html>

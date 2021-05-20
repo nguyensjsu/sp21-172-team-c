@@ -44,7 +44,7 @@ public class Customer {
         return this.customerID;
     }
 
-    public void setID(String customerID) {
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
 
