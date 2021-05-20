@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cashiers-app-service 
+  namespace: default
+spec:
+  type: ClusterIP
+  ports:
+  - port: 9090
+    targetPort: 9090 
+  selector:
+    name: cashiers-app

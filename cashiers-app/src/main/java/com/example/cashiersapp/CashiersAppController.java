@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -22,6 +23,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 @Controller
 @RequestMapping("/")
 public class CashiersAppController {
+
+    @Value("${spring-starbucks.api.endpoint}")
+    private String apiEndpoint;
+    @Value("${spring-starbucks.api.key}")
+    private String apiKey;
 
     @GetMapping
     public String cashiers(Model model) {
@@ -44,8 +50,9 @@ public class CashiersAppController {
         // --- ACTIONS ---
         if (action.equals("Add to Order")) {
             HttpRequest httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:9090/order/register/" + storeID))
+                .uri(URI.create(apiEndpoint + "/order/register/" + storeID))
                 .header("Content-Type", "application/json")
+                .header("apikey", apiKey)
                 .POST(HttpRequest.BodyPublishers.ofString(DrinkRequest.toJson(drink, milk, size)))
                 .build();
 
@@ -62,7 +69,8 @@ public class CashiersAppController {
             getOrder(storeID, client, model);
         } else if (action.equals("Place Order")) {
             HttpRequest httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:9090/order/register/" + storeID + "/pay/" + cardNum)) // create/activate card before testing this, and put cc num at end
+                .uri(URI.create(apiEndpoint + "/order/register/" + storeID + "/pay/" + cardNum)) // create/activate card before testing this, and put cc num at end
+                .header("apikey", apiKey)
                 .POST(HttpRequest.BodyPublishers.noBody())
                 .build();
 
@@ -75,7 +83,8 @@ public class CashiersAppController {
             model.addAttribute("didPlaceOrder", true);
         } else if (action.equals("Delete Order")) {
             HttpRequest httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:9090/order/register/" + storeID))
+                .uri(URI.create(apiEndpoint + "/order/register/" + storeID))
+                .header("apikey", apiKey)
                 .DELETE()
                 .build();
             
@@ -99,7 +108,8 @@ public class CashiersAppController {
 
     public void getOrder(String storeID, HttpClient client, Model model) {
         HttpRequest httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:9090/order/register/" + storeID))
+                .uri(URI.create(apiEndpoint + "/order/register/" + storeID))
+                .header("apikey", apiKey)
                 .GET()
                 .build();
 

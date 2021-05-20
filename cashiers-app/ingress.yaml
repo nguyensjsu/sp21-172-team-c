@@ -1,0 +1,9 @@
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "cashiers-app-ingress"
+  namespace: "default"
+spec:
+  backend:
+    serviceName: "cashiers-app-service"
+    servicePort: 9090

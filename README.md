@@ -5,9 +5,19 @@
 
 ### Screenshots
 
+#### Running Locally
+
 ![Cashier's App](cashiers-app-images/cashiersApp.png)
 
 ![Cashier's App 2](cashiers-app-images/cashiersApp2.png)
+
+#### GKE Deployment
+
+![Cashier's App / API Workloads](cashiers-app-images/cashiersApiWorkloads.png)
+
+![Cashier's App / API Services](cashiers-app-images/cashiersApiServicesWithKong.png)
+
+![Cashier's App / API Ingresses](cashiers-app-images/cashiersApiIngresses.png)
 
 ### Discussion
 
@@ -54,7 +64,32 @@
 
 ## REST API
 
+### Sample Request - REST API Deployed w/ Kong API Gateway
+
+![REST API / Kong](cashiers-app-images/proofOfKongGateway.png)
+
+### Discussion
+
+- The final design of our REST API serves functionality for both Starbucks Cards as well as Starbucks Orders.
+  - Starbucks Cards
+    - Get all cards
+    - Create a new card
+    - Get specific card details
+    - Activate a card
+    - Delete all cards
+  - Starbucks Orders
+    - Create a new order
+    - Get the active order for a specific register
+    - Delete a register's active order
+    - Pay for an order with an activated Starbucks card
+    - Get a list of all active orders, for all registers
+    - Delete all active orders, at all registers
+
 ## Integrations
+
+### Kong API Gateway
+
+- Kong was used to proxy our REST API service. Specifically, it was integrated to require authentication from the API client.
 
 ## Cloud Deployments
 
