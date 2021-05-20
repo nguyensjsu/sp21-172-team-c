@@ -10,6 +10,6 @@
     <p th:text="'Serving customer: ' + ${firstname} + ' ' + ${lastname}+'!'" />
     <br>
     <p th:text="'Your total rewards: ' + ${rewards}" />
-    
+    <button type="button" th:onclick="|window.location.href='/search'|">Search with known ID</button>
 </body>
 </html>

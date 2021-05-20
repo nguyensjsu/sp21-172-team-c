@@ -1,0 +1,10 @@
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "backoffice_app-ingress"
+  namespace: "default"
+spec:
+  backend:
+    serviceName: "backoffice_app-service"
+    servicePort: 8080
+

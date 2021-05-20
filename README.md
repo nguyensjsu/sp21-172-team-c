@@ -113,3 +113,17 @@ Challenge:
 ### Kong API Gateway
 
 - Kong was used to proxy our REST API service. Specifically, it was integrated to require authentication from the API client.
+
+## Back Office 
+
+### Running Locally
+
+![Main Page](backoffice-images/main.png)
+![Customer List](backoffice-images/customer-list.png)
+![Customer Search](backoffice-images/customer-search.png)
+![Search Result](backkoffice-images/search-result.png)
+
+### Cloud Deployment
+![Docker Image](backoffice-images/docker-image.png)
+![]
+### Discussion
