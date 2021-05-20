@@ -30,7 +30,9 @@
   3. Delete Order
      - If the barista would like to clear the active order for the selected register, then all they have to do is just click this button to "reset."
 
-## Online Store - Running Locally
+## Online Store
+
+### Running Locally
 
 1. Starbuck Cards w and w/o Log
 ![onlinestore-app](onlinestore-images/sbc.png)
@@ -60,7 +62,20 @@
 ![onlinestore-app](onlinestore-images/h2console.png)
 ![onlinestore-app](onlinestore-images/h2console1.png)
 
-### Discussion
+### GKE Deployment
+
+1. Docker & DockerHub
+![onlinestore-app](onlinestore-images/docker.png)
+![onlinestore-app](onlinestore-images/dockerhub.png)
+
+2. GKE
+![onlinestore-app](onlinestore-images/cluster.png)
+![onlinestore-app](onlinestore-images/workload.png)
+![onlinestore-app](onlinestore-images/service.png)
+![onlinestore-app](onlinestore-images/ingress.png)
+![onlinestore-app](onlinestore-images/deployed.png)
+
+#### Discussion
 
 ## REST API
 
@@ -85,23 +100,6 @@
     - Get a list of all active orders, for all registers
     - Delete all active orders, at all registers
 
-## Integrations
-
 ### Kong API Gateway
 
 - Kong was used to proxy our REST API service. Specifically, it was integrated to require authentication from the API client.
-
-## Cloud Deployments
-
-### Online Store - Deployed
-
-1. Docker & DockerHub
-![onlinestore-app](onlinestore-images/docker.png)
-![onlinestore-app](onlinestore-images/dockerhub.png)
-
-2. GKE
-![onlinestore-app](onlinestore-images/cluster.png)
-![onlinestore-app](onlinestore-images/workload.png)
-![onlinestore-app](onlinestore-images/service.png)
-![onlinestore-app](onlinestore-images/ingress.png)
-![onlinestore-app](onlinestore-images/deployed.png)
