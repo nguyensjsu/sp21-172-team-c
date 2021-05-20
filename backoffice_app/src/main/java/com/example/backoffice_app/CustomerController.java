@@ -55,9 +55,10 @@ public class CustomerController {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error. Customer not found!");
     }
     else {
-      String firstName = found.getFirstName();
       model.addAttribute("customer", customer);
-      model.addAttribute("name", firstName);
+      model.addAttribute("firstname", found.getFirstName());
+      model.addAttribute("lastname", found.getLastName());
+      model.addAttribute("rewards", found.getRewards());
     }
     
     //model.addAttribute("customer", customer);

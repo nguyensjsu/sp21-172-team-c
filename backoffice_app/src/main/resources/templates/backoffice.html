@@ -7,6 +7,9 @@
 <body>
     <h1> Starbucks Back Office for Employee</h1>
       <h2> Customer Search</h2>
-    <p th:text="'Serving customer, ' + ${name} + '!'" />
+    <p th:text="'Serving customer: ' + ${firstname} + ' ' + ${lastname}+'!'" />
+    <br>
+    <p th:text="'Your total rewards: ' + ${rewards}" />
+    
 </body>
 </html>
